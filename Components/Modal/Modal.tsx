@@ -18,38 +18,14 @@ export default function Modal({
   }, [onClose]);
 
   return (
-    <div
-      style={{
-        position: "fixed",
-        inset: 0,
-        backgroundColor: "rgba()",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        zIndex: 50,
-      }}
-    >
+    <div className="fixed flex justify-center items-center z-50 inset-0">
       <div
         onClick={(e) => e.stopPropagation()}
-        style={{
-          backgroundColor: "#fff",
-          padding: 20,
-          borderRadius: 10,
-          position: "relative",
-          maxWidth: "80%",
-        }}
+        className=" bg-[#fff] relative max-w-[80%] p-[16] rounded-[10]"
       >
         <button
           onClick={onClose}
-          style={{
-            position: "absolute",
-            top: 10,
-            right: 10,
-            background: "transparent",
-            border: "none",
-            fontSize: 24,
-            cursor: "pointer",
-          }}
+          className="absolute w-5 h-5 rounded-2xl dark:bg-gray-300 cursor-pointer border-[none] right-[10] top-[10] bg-gray-300 text-[24]"
         >
           &times;
         </button>
