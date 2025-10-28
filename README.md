@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🧩 Gallery
 
-## Getting Started
+A simple gallery for app
 
-First, run the development server:
+🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🧭 Built with Next.js App Router (app/ directory)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🔀 Uses parallel routes (@modal segment) for modal rendering
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+♻️ Maintains URL-based modal state
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🧱 Modular and extensible UI architecture
 
-## Learn More
+2. Set up environment
+   npm install
 
-To learn more about Next.js, take a look at the following resources:
+This project is a Next.js application that demonstrates modal management using parallel routes in the App Router. It provides a scalable architecture for building multi-layered UIs where modals can be managed at the routing level — without losing navigation state or requiring complex client-side state management.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🧩 How Modal Management Works
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project leverages Next.js parallel routing to render modals independently of the main route content.
 
-## Deploy on Vercel
+When a modal route (e.g. /gallery/123) is accessed:
+The modal content is rendered inside the @modal slot defined in layout.tsx.
+Navigation updates the URL — allowing deep linking and browser navigation (Back/Forward) for modals.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+⚙️ Project Structure
+gallery/
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+├── layout.tsx # Root layout (defines @modal parallel route)
+├── page.tsx # Main page
+├── @modal/ # Parallel route for modals
+│ ├── default.tsx # Fallback (renders nothing when no modal is open)
+│ ├── [id]/page.tsx # Modal route for user details
+└── components/
+├── Modal.tsx # Shared modal component
+└── ModalComponent.tsx ... # UI primitives (buttons, overlays, etc.)
