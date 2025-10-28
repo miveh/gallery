@@ -1,4 +1,4 @@
-import Link from "next/link";
+"use client";
 
 export default function PhotosLayout({
   children,
@@ -9,11 +9,6 @@ export default function PhotosLayout({
 }) {
   return (
     <>
-      <nav>
-        <Link href="gallery/1" as="/gallery">
-          Open modal
-        </Link>
-      </nav>
       {modal}
       {children}
     </>
