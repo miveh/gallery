@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function PhotosLayout({
   children,
   modal,
@@ -7,8 +9,13 @@ export default function PhotosLayout({
 }) {
   return (
     <>
-      {children}
+      <nav>
+        <Link href="gallery/1" as="/gallery">
+          Open modal
+        </Link>
+      </nav>
       {modal}
+      {children}
     </>
   );
 }

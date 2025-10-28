@@ -9,7 +9,6 @@ export default function Modal({
   children: ReactNode;
   onClose: () => void;
 }) {
-  // Optional: handle Esc key to close modal
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
       if (e.key === "Escape") onClose();
@@ -20,11 +19,11 @@ export default function Modal({
 
   return (
     <div
-      onClick={onClose}
+      // onClick={onClose}
       style={{
         position: "fixed",
         inset: 0,
-        backgroundColor: "red",
+        backgroundColor: "rgba()",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

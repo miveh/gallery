@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import style from "./gallery.module.css";
-import { useMemo } from "react";
+import { useRouter } from "next/navigation";
 
 const photos = [
   {
@@ -114,13 +113,15 @@ const photos = [
 ];
 
 export default function PhotosPage() {
+  const router = useRouter();
   return (
     <div className={`${style.grid} ${style.container}`}>
       {photos.map((photo) => (
-        <div className={`${style.imageCard}`} key={photo.id}>
-          {/* <Link href={`/gallery/${photo.id}`}>
-           
-          </Link> */}
+        <div
+          onClick={() => router.push(`/gallery/${photo.id}`, { scroll: false })}
+          className={`${style.imageCard}`}
+          key={photo.id}
+        >
           <Image
             src={photo.src}
             alt={`Photo ${photo.id}`}
