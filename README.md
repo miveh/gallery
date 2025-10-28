@@ -26,13 +26,4 @@ The modal content is rendered inside the @modal slot defined in layout.tsx.
 Navigation updates the URL — allowing deep linking and browser navigation (Back/Forward) for modals.
 
 ⚙️ Project Structure
-gallery/
-
-├── layout.tsx # Root layout (defines @modal parallel route)
-├── page.tsx # Main page
-├── @modal/ # Parallel route for modals
-│ ├── default.tsx # Fallback (renders nothing when no modal is open)
-│ ├── [id]/page.tsx # Modal route for user details
-└── components/
-├── Modal.tsx # Shared modal component
-└── ModalComponent.tsx ... # UI primitives (buttons, overlays, etc.)
+gallery/ ...
