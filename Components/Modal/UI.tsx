@@ -17,13 +17,7 @@ function ModalComponent() {
   return (
     <Modal onClose={handleClose}>
       {photo && (
-        <Image
-          className="max-h-2/4"
-          src={photo.src}
-          alt={photo.title}
-          width={600}
-          height={600}
-        />
+        <Image src={photo.src} alt={photo.title} width={600} height={600} />
       )}
       <h2 className="text-gray-500 dark:text-gray-400 mt-3">{photo?.title}</h2>
       <p className="text-gray-600 dark:text-gray-400 mt-2">
