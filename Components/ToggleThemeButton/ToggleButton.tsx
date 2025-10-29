@@ -1,6 +1,16 @@
 function ToggleButton() {
   const toggle = () => {
-    //todo: toggle here
+    let lightSwitch: boolean = true;
+    if (localStorage.getItem("dark-mode") === "true") {
+      lightSwitch = false;
+    }
+    if (lightSwitch) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("dark-mode", "true");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("dark-mode", "false");
+    }
   };
 
   return (
@@ -8,7 +18,7 @@ function ToggleButton() {
       <button
         onClick={() => toggle()}
         type="button"
-        className="cursor-pointer hs-dark-mode-active:hidden block hs-dark-mode font-medium text-gray-800 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200"
+        className="cursor-pointer dark:hidden block font-medium text-gray-800 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200"
         data-hs-theme-click-value="dark"
       >
         <span className="group inline-flex shrink-0 justify-center items-center size-9">
@@ -29,8 +39,9 @@ function ToggleButton() {
         </span>
       </button>
       <button
+        onClick={() => toggle()}
         type="button"
-        className="hs-dark-mode-active:block hidden hs-dark-mode font-medium text-gray-800 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200"
+        className="dark:block hidden hs-dark-mode font-medium text-gray-500  rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200"
         data-hs-theme-click-value="light"
       >
         <span className="group inline-flex shrink-0 justify-center items-center size-9">
